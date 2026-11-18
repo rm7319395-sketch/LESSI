@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blendy — Real fruit smoothies</title>
+  
+  <!-- Font Preloads -->
+  <link rel="preload" href="fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/baloo2-800.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Sheet Image Preloads -->
+  <link rel="preload" href="https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png" as="image" type="image/webp">
+  <link rel="preload" href="https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png" as="image" type="image/webp">
+  <link rel="preload" href="https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png" as="image" type="image/webp">
+  <link rel="preload" href="https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png" as="image" type="image/webp">
+
+  <style>
+    /* Google Fonts Definitions */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('fonts/poppins-500.woff2') format('woff2'),
+           url('https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('fonts/poppins-600.woff2') format('woff2'),
+           url('https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('fonts/poppins-700.woff2') format('woff2'),
+           url('https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Baloo 2';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url('fonts/baloo2-800.woff2') format('woff2'),
+           url('https://fonts.gstatic.com/s/baloo2/v23/wXK0E3kTposypRydzVT08TS3JnAmtdiayppo_lc.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --u: 1px;
+      --n: 1px;
+      --fy: 0px;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #C2B0DC;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+      font-family: 'Poppins', system-ui, sans-serif;
+      color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Small UI text shadow */
+    .logo, .tab-btn, .account-link, .account-separator, .shop-now {
+      text-shadow: 0 1px 6px rgba(90, 70, 40, 0.18);
+    }
+    .arrow-btn svg {
+      filter: drop-shadow(0 1px 6px rgba(90, 70, 40, 0.18));
+    }
+
+    /* Stage */
+    .stage {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .slide-section {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      will-change: clip-path;
+    }
+
+    /* 1440 x 900 frame */
+    .frame {
+      position: absolute;
+      width: calc(1440 * var(--u));
+      height: calc(900 * var(--u));
+      left: calc(50% - 720 * var(--u));
+      top: calc(50% - 450 * var(--u) + var(--fy, 0px));
+      pointer-events: none;
+    }
+
+    /* Layers inside frame */
+    .layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .layer-word { z-index: 1; }
+    .layer-shadow { z-index: 2; }
+    .layer-bottle { z-index: 3; }
+    .layer-fruit { z-index: 4; }
+    .layer-corner { z-index: 5; }
+
+    /* Word */
+    .flavour-word-wrapper {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .flavour-word {
+      display: inline-block;
+      font-family: 'Poppins', system-ui, sans-serif;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+      color: #FFFFFF;
+      user-select: none;
+    }
+
+    /* Floor shadows */
+    .floor-shadow {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(60, 40, 80, 0.22), transparent);
+      filter: blur(calc(4 * var(--u)));
+      pointer-events: none;
+    }
+
+    /* Bottle */
+    .bottle-piece {
+      position: absolute;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+
+    /* Fruit pieces */
+    .fruit-piece {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .fruit-piece.mirror {
+      transform: scaleX(-1);
+      transform-origin: center center;
+    }
+
+    .fruit-piece.corner-piece {
+      filter: blur(calc(9 * var(--u)));
+    }
+
+    .fruit-inner {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+
+    /* Fixed UI Layer */
+    .ui-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .ui-layer a,
+    .ui-layer button {
+      pointer-events: auto;
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      outline: none;
+    }
+
+    /* Opening sequence reveal state */
+    .ui-reveal {
+      opacity: 0;
+      translate: 0 14px;
+    }
+    .ui-reveal.revealed {
+      opacity: 1;
+      translate: 0 0;
+      transition: opacity 1000ms cubic-bezier(0.22, 0.8, 0.3, 1),
+                  translate 1000ms cubic-bezier(0.22, 0.8, 0.3, 1);
+    }
+
+    /* Header row (desktop) */
+    .header-row {
+      position: fixed;
+      left: calc(50 * var(--n));
+      right: calc(50 * var(--n));
+      top: calc(26 * var(--n));
+      height: calc(50 * var(--n));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Baloo 2', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: calc(51 * var(--n));
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: #FFFFFF;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tabs-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+    }
+
+    .tabs-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: calc(88 * var(--n));
+    }
+
+    .tab-btn {
+      font-family: 'Poppins', system-ui, sans-serif;
+      font-weight: 500;
+      font-size: calc(21 * var(--n));
+      line-height: 1;
+      padding: calc(6 * var(--n)) 0;
+      white-space: nowrap;
+      color: #FFFFFF;
+    }
+
+    .tab-underline {
+      position: absolute;
+      top: calc(100% + 2 * var(--n));
+      left: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: #FFFFFF;
+      pointer-events: none;
+      transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+                  width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    .account-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: calc(22 * var(--n));
+      font-family: 'Poppins', system-ui, sans-serif;
+      font-weight: 500;
+      font-size: calc(21 * var(--n));
+      line-height: 1;
+    }
+
+    .account-separator {
+      opacity: 0.9;
+      user-select: none;
+    }
+
+    /* Bottom controls (desktop) */
+    .shop-now {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: calc(36 * var(--n));
+      font-family: 'Poppins', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: calc(21 * var(--n));
+      letter-spacing: 0.2em;
+      padding: calc(10 * var(--n)) calc(16 * var(--n));
+      line-height: 1;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .arrow-btn {
+      position: fixed;
+      bottom: calc(30 * var(--n));
+      width: calc(52 * var(--n));
+      height: calc(52 * var(--n));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .prev-btn {
+      left: calc(36 * var(--n));
+    }
+
+    .next-btn {
+      right: calc(36 * var(--n));
+    }
+
+    .arrow-btn svg {
+      width: calc(28 * var(--n));
+      height: calc(28 * var(--n));
+      display: block;
+    }
+
+    /* Mobile overrides */
+    body.is-mobile .header-row {
+      left: 20px;
+      right: 20px;
+      top: 16px;
+      height: 40px;
+    }
+
+    body.is-mobile .logo {
+      font-size: 34px;
+    }
+
+    body.is-mobile .account-links {
+      font-size: 15px;
+      gap: 10px;
+    }
+
+    body.is-mobile .tabs-container {
+      position: fixed;
+      top: 52px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    body.is-mobile .tabs-wrapper {
+      gap: 22px;
+    }
+
+    body.is-mobile .tab-btn {
+      font-size: 15px;
+      padding: 4px 0;
+    }
+
+    body.is-mobile .tab-underline {
+      top: calc(100% + 2px);
+    }
+
+    body.is-mobile .shop-now {
+      font-size: 15px;
+      bottom: 22px;
+      padding: 8px 12px;
+    }
+
+    body.is-mobile .arrow-btn {
+      bottom: 12px;
+      width: 48px;
+      height: 48px;
+    }
+
+    body.is-mobile .prev-btn {
+      left: 8px;
+    }
+
+    body.is-mobile .next-btn {
+      right: 8px;
+    }
+
+    body.is-mobile .arrow-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Generated Keyframes */
+    
+@keyframes bob_0_0 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_0_1 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_0_2 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-11deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(-5deg);
+  }
+}
+@keyframes bob_0_3 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(12deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(18deg);
+  }
+}
+@keyframes bob_0_4 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(27deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(33deg);
+  }
+}
+@keyframes bob_0_5 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_0_6 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_1_0 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-153deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(-147deg);
+  }
+}
+@keyframes bob_1_1 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_1_2 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_1_3 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-28deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(-22deg);
+  }
+}
+@keyframes bob_1_4 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(7deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(13deg);
+  }
+}
+@keyframes bob_1_5 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_1_6 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_2_0 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_2_1 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-13deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(-7deg);
+  }
+}
+@keyframes bob_2_2 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(12deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(18deg);
+  }
+}
+@keyframes bob_2_3 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(17deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(23deg);
+  }
+}
+@keyframes bob_2_4 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-15deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(-9deg);
+  }
+}
+@keyframes bob_2_5 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_2_6 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_3_0 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_3_1 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(17deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(23deg);
+  }
+}
+@keyframes bob_3_2 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-13deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(-7deg);
+  }
+}
+@keyframes bob_3_3 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(12deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(18deg);
+  }
+}
+@keyframes bob_3_4 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-18deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(-12deg);
+  }
+}
+@keyframes bob_3_5 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(3deg);
+  }
+}
+@keyframes bob_3_6 {
+  0% {
+    transform: translateY(calc(-7 * var(--u))) rotate(17deg);
+  }
+  100% {
+    transform: translateY(calc(7 * var(--u))) rotate(23deg);
+  }
+}
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .fruit-inner {
+        animation: none !important;
+        transform: rotate(var(--base-rot, 0deg)) !important;
+      }
+      .tab-underline {
+        transition: none !important;
+      }
+      .ui-reveal {
+        opacity: 1 !important;
+        translate: 0 0 !important;
+        transition: none !important;
+      }
+      .layer {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Stage containing 4 slides -->
+  <main id="stage" class="stage" aria-label="Smoothie flavour slider">
+    
+  <!-- Slide 0: Berry -->
+  <section class="slide-section slide-berry" id="slide-0" data-flavour="Berry" style="background-color: #C2B0DC; display: block; z-index: 2;" aria-hidden="false">
+    <div class="frame">
+      <!-- 1. Word layer -->
+      <div class="layer layer-word" id="layer-word-0">
+        <div class="flavour-word-wrapper">
+          <span class="flavour-word" id="word-0">Berry</span>
+        </div>
+      </div>
+
+      <!-- 2. Shadow layer -->
+      <div class="layer layer-shadow" id="layer-shadow-0">
+        
+        <div class="floor-shadow" style="left: calc((345 - 85) * var(--u)); top: calc((650 - 12) * var(--u)); width: calc(170 * var(--u)); height: calc(24 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((720 - 160) * var(--u)); top: calc((708 - 15) * var(--u)); width: calc(320 * var(--u)); height: calc(30 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((1318 - 80) * var(--u)); top: calc((638 - 11) * var(--u)); width: calc(160 * var(--u)); height: calc(22 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((1045 - 75) * var(--u)); top: calc((760 - 11) * var(--u)); width: calc(150 * var(--u)); height: calc(22 * var(--u));"></div>
+      </div>
+
+      <!-- 3. Bottle layer -->
+      <div class="layer layer-bottle" id="layer-bottle-0">
+        <div class="bottle-piece" style="left: calc(518 * var(--u)); top: calc(138 * var(--u)); width: calc(372 * var(--u)); height: calc(570.4415 * var(--u)); background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png'); background-size: calc(1274.0067 * var(--u)) calc(1274.0067 * var(--u)); background-position: calc(-144.9431 * var(--u)) calc(-37.3244 * var(--u));"></div>
+      </div>
+
+      <!-- 4. Fruit layer -->
+      <div class="layer layer-fruit" id="layer-fruit-0">
+        
+        <div class="fruit-piece " style="left: calc(383 * var(--u)); top: calc(178 * var(--u)); width: calc(104 * var(--u)); height: calc(102.7427 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_0_0" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png'); background-size: calc(367.8618 * var(--u)) calc(367.8618 * var(--u)); background-position: calc(-47.5993 * var(--u)) calc(-220.9326 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(960 * var(--u)); top: calc(232 * var(--u)); width: calc(118 * var(--u)); height: calc(120.8275 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_0_1" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png'); background-size: calc(386.0447 * var(--u)) calc(386.0447 * var(--u)); background-position: calc(-224.6901 * var(--u)) calc(-224.6901 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(295 * var(--u)); top: calc(478 * var(--u)); width: calc(129 * var(--u)); height: calc(129.9069 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_0_2" data-rot="-8" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png'); background-size: calc(464.3093 * var(--u)) calc(464.3093 * var(--u)); background-position: calc(-274.0967 * var(--u)) calc(-61.6661 * var(--u)); --base-rot: -8deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(1247 * var(--u)); top: calc(455 * var(--u)); width: calc(123 * var(--u)); height: calc(123.8647 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_0_3" data-rot="15" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png'); background-size: calc(442.7135 * var(--u)) calc(442.7135 * var(--u)); background-position: calc(-261.348 * var(--u)) calc(-58.7979 * var(--u)); --base-rot: 15deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(968 * var(--u)); top: calc(590 * var(--u)); width: calc(110 * var(--u)); height: calc(108.6701 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_0_4" data-rot="30" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png'); background-size: calc(389.0846 * var(--u)) calc(389.0846 * var(--u)); background-position: calc(-50.3454 * var(--u)) calc(-233.6788 * var(--u)); --base-rot: 30deg;"></div>
+        </div>
+      </div>
+
+      <!-- 5. Corner layer -->
+      <div class="layer layer-corner" id="layer-corner-0">
+        
+        <div class="fruit-piece corner-piece " style="left: calc(-15 * var(--u)); top: calc(590 * var(--u)); width: calc(255 * var(--u)); height: calc(256.7926 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_0_5" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png'); background-size: calc(917.8207 * var(--u)) calc(917.8207 * var(--u)); background-position: calc(-541.819 * var(--u)) calc(-121.8981 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece corner-piece " style="left: calc(1282 * var(--u)); top: calc(40 * var(--u)); width: calc(200 * var(--u)); height: calc(204.7923 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_0_6" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_8803e421-29b1-4c24-8efd-54cae3f479b4.png'); background-size: calc(654.3131 * var(--u)) calc(654.3131 * var(--u)); background-position: calc(-380.8307 * var(--u)) calc(-380.8307 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Slide 1: Kiwi -->
+  <section class="slide-section slide-kiwi" id="slide-1" data-flavour="Kiwi" style="background-color: #B4D58A; display: none; z-index: 1;" aria-hidden="true">
+    <div class="frame">
+      <!-- 1. Word layer -->
+      <div class="layer layer-word" id="layer-word-1">
+        <div class="flavour-word-wrapper">
+          <span class="flavour-word" id="word-1">Kiwi</span>
+        </div>
+      </div>
+
+      <!-- 2. Shadow layer -->
+      <div class="layer layer-shadow" id="layer-shadow-1">
+        
+        <div class="floor-shadow" style="left: calc((345 - 85) * var(--u)); top: calc((650 - 12) * var(--u)); width: calc(170 * var(--u)); height: calc(24 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((720 - 160) * var(--u)); top: calc((708 - 15) * var(--u)); width: calc(320 * var(--u)); height: calc(30 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((1318 - 80) * var(--u)); top: calc((638 - 11) * var(--u)); width: calc(160 * var(--u)); height: calc(22 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((1045 - 75) * var(--u)); top: calc((760 - 11) * var(--u)); width: calc(150 * var(--u)); height: calc(22 * var(--u));"></div>
+      </div>
+
+      <!-- 3. Bottle layer -->
+      <div class="layer layer-bottle" id="layer-bottle-1">
+        <div class="bottle-piece" style="left: calc(504 * var(--u)); top: calc(135 * var(--u)); width: calc(403 * var(--u)); height: calc(577.4131 * var(--u)); background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png'); background-size: calc(1353.023 * var(--u)) calc(1353.023 * var(--u)); background-position: calc(-143.3623 * var(--u)) calc(-59.459 * var(--u));"></div>
+      </div>
+
+      <!-- 4. Fruit layer -->
+      <div class="layer layer-fruit" id="layer-fruit-1">
+        
+        <div class="fruit-piece mirror" style="left: calc(376 * var(--u)); top: calc(170 * var(--u)); width: calc(144 * var(--u)); height: calc(121.4346 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_1_0" data-rot="-150" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png'); background-size: calc(476.433 * var(--u)) calc(476.433 * var(--u)); background-position: calc(-58.1583 * var(--u)) calc(-278.462 * var(--u)); --base-rot: -150deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(960 * var(--u)); top: calc(228 * var(--u)); width: calc(152 * var(--u)); height: calc(156.0821 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_1_1" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png'); background-size: calc(491.7788 * var(--u)) calc(491.7788 * var(--u)); background-position: calc(-288.1517 * var(--u)) calc(-284.7899 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(303 * var(--u)); top: calc(460 * var(--u)); width: calc(168 * var(--u)); height: calc(163.1147 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_1_2" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png'); background-size: calc(555.8384 * var(--u)) calc(555.8384 * var(--u)); background-position: calc(-326.7722 * var(--u)) calc(-69.7512 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(1187 * var(--u)); top: calc(462 * var(--u)); width: calc(148 * var(--u)); height: calc(124.8078 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_1_3" data-rot="-25" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png'); background-size: calc(489.6672 * var(--u)) calc(489.6672 * var(--u)); background-position: calc(-59.7738 * var(--u)) calc(-286.1971 * var(--u)); --base-rot: -25deg;"></div>
+        </div>
+        <div class="fruit-piece mirror" style="left: calc(946 * var(--u)); top: calc(606 * var(--u)); width: calc(150 * var(--u)); height: calc(126.4943 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_1_4" data-rot="10" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png'); background-size: calc(496.2843 * var(--u)) calc(496.2843 * var(--u)); background-position: calc(-60.5816 * var(--u)) calc(-290.0646 * var(--u)); --base-rot: 10deg;"></div>
+        </div>
+      </div>
+
+      <!-- 5. Corner layer -->
+      <div class="layer layer-corner" id="layer-corner-1">
+        
+        <div class="fruit-piece corner-piece " style="left: calc(-10 * var(--u)); top: calc(575 * var(--u)); width: calc(260 * var(--u)); height: calc(252.4394 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_1_5" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png'); background-size: calc(860.2262 * var(--u)) calc(860.2262 * var(--u)); background-position: calc(-505.7189 * var(--u)) calc(-107.9483 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece corner-piece " style="left: calc(1285 * var(--u)); top: calc(30 * var(--u)); width: calc(200 * var(--u)); height: calc(205.3712 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_1_6" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_b5695e60-72da-4b5b-bfb7-a091d528af75.png'); background-size: calc(647.0774 * var(--u)) calc(647.0774 * var(--u)); background-position: calc(-379.1469 * var(--u)) calc(-374.7235 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Slide 2: Banana -->
+  <section class="slide-section slide-banana" id="slide-2" data-flavour="Banana" style="background-color: #F3DA8A; display: none; z-index: 1;" aria-hidden="true">
+    <div class="frame">
+      <!-- 1. Word layer -->
+      <div class="layer layer-word" id="layer-word-2">
+        <div class="flavour-word-wrapper">
+          <span class="flavour-word" id="word-2">Banana</span>
+        </div>
+      </div>
+
+      <!-- 2. Shadow layer -->
+      <div class="layer layer-shadow" id="layer-shadow-2">
+        
+        <div class="floor-shadow" style="left: calc((345 - 85) * var(--u)); top: calc((650 - 12) * var(--u)); width: calc(170 * var(--u)); height: calc(24 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((720 - 160) * var(--u)); top: calc((708 - 15) * var(--u)); width: calc(320 * var(--u)); height: calc(30 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((1318 - 80) * var(--u)); top: calc((638 - 11) * var(--u)); width: calc(160 * var(--u)); height: calc(22 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((1045 - 75) * var(--u)); top: calc((760 - 11) * var(--u)); width: calc(150 * var(--u)); height: calc(22 * var(--u));"></div>
+      </div>
+
+      <!-- 3. Bottle layer -->
+      <div class="layer layer-bottle" id="layer-bottle-2">
+        <div class="bottle-piece" style="left: calc(512 * var(--u)); top: calc(135 * var(--u)); width: calc(383 * var(--u)); height: calc(577.4767 * var(--u)); background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png'); background-size: calc(1354.7219 * var(--u)) calc(1354.7219 * var(--u)); background-position: calc(-128.3282 * var(--u)) calc(-50.2729 * var(--u));"></div>
+      </div>
+
+      <!-- 4. Fruit layer -->
+      <div class="layer layer-fruit" id="layer-fruit-2">
+        
+        <div class="fruit-piece " style="left: calc(387 * var(--u)); top: calc(147 * var(--u)); width: calc(123 * var(--u)); height: calc(123.2064 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_2_0" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png'); background-size: calc(422.6577 * var(--u)) calc(422.6577 * var(--u)); background-position: calc(-248.6829 * var(--u)) calc(-47.0537 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece mirror" style="left: calc(970 * var(--u)); top: calc(223 * var(--u)); width: calc(136 * var(--u)); height: calc(141.2308 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_2_1" data-rot="-10" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png'); background-size: calc(446.359 * var(--u)) calc(446.359 * var(--u)); background-position: calc(-50.1282 * var(--u)) calc(-257.3974 * var(--u)); --base-rot: -10deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(298 * var(--u)); top: calc(483 * var(--u)); width: calc(132 * var(--u)); height: calc(134.6563 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_2_2" data-rot="15" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png'); background-size: calc(418.4768 * var(--u)) calc(418.4768 * var(--u)); background-position: calc(-243.7709 * var(--u)) calc(-241.5232 * var(--u)); --base-rot: 15deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(1245 * var(--u)); top: calc(462 * var(--u)); width: calc(150 * var(--u)); height: calc(155.7692 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_2_3" data-rot="20" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png'); background-size: calc(492.3077 * var(--u)) calc(492.3077 * var(--u)); background-position: calc(-55.2885 * var(--u)) calc(-283.8942 * var(--u)); --base-rot: 20deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(950 * var(--u)); top: calc(582 * var(--u)); width: calc(130 * var(--u)); height: calc(132.6161 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_2_4" data-rot="-12" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png'); background-size: calc(412.1362 * var(--u)) calc(412.1362 * var(--u)); background-position: calc(-240.0774 * var(--u)) calc(-237.8638 * var(--u)); --base-rot: -12deg;"></div>
+        </div>
+      </div>
+
+      <!-- 5. Corner layer -->
+      <div class="layer layer-corner" id="layer-corner-2">
+        
+        <div class="fruit-piece corner-piece " style="left: calc(0 * var(--u)); top: calc(585 * var(--u)); width: calc(235 * var(--u)); height: calc(239.7291 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_2_5" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png'); background-size: calc(745.0155 * var(--u)) calc(745.0155 * var(--u)); background-position: calc(-433.9861 * var(--u)) calc(-429.9845 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece corner-piece " style="left: calc(1280 * var(--u)); top: calc(30 * var(--u)); width: calc(190 * var(--u)); height: calc(190.3188 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_2_6" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_053958_6cf14029-4bce-4c9a-b9fc-1c5b185082e3.png'); background-size: calc(652.8859 * var(--u)) calc(652.8859 * var(--u)); background-position: calc(-384.1443 * var(--u)) calc(-72.6846 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Slide 3: Strawberry -->
+  <section class="slide-section slide-strawberry" id="slide-3" data-flavour="Strawberry" style="background-color: #F2AFC0; display: none; z-index: 1;" aria-hidden="true">
+    <div class="frame">
+      <!-- 1. Word layer -->
+      <div class="layer layer-word" id="layer-word-3">
+        <div class="flavour-word-wrapper">
+          <span class="flavour-word" id="word-3">Strawberry</span>
+        </div>
+      </div>
+
+      <!-- 2. Shadow layer -->
+      <div class="layer layer-shadow" id="layer-shadow-3">
+        
+        <div class="floor-shadow" style="left: calc((345 - 85) * var(--u)); top: calc((650 - 12) * var(--u)); width: calc(170 * var(--u)); height: calc(24 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((720 - 160) * var(--u)); top: calc((708 - 15) * var(--u)); width: calc(320 * var(--u)); height: calc(30 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((1318 - 80) * var(--u)); top: calc((638 - 11) * var(--u)); width: calc(160 * var(--u)); height: calc(22 * var(--u));"></div>
+        <div class="floor-shadow" style="left: calc((1045 - 75) * var(--u)); top: calc((760 - 11) * var(--u)); width: calc(150 * var(--u)); height: calc(22 * var(--u));"></div>
+      </div>
+
+      <!-- 3. Bottle layer -->
+      <div class="layer layer-bottle" id="layer-bottle-3">
+        <div class="bottle-piece" style="left: calc(512 * var(--u)); top: calc(135 * var(--u)); width: calc(386 * var(--u)); height: calc(576.4007 * var(--u)); background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png'); background-size: calc(1330.8552 * var(--u)) calc(1330.8552 * var(--u)); background-position: calc(-146.862 * var(--u)) calc(-57.1852 * var(--u));"></div>
+      </div>
+
+      <!-- 4. Fruit layer -->
+      <div class="layer layer-fruit" id="layer-fruit-3">
+        
+        <div class="fruit-piece " style="left: calc(372 * var(--u)); top: calc(142 * var(--u)); width: calc(128 * var(--u)); height: calc(148.9911 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_3_0" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png'); background-size: calc(467.2799 * var(--u)) calc(467.2799 * var(--u)); background-position: calc(-271.5152 * var(--u)) calc(-49.2834 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(955 * var(--u)); top: calc(225 * var(--u)); width: calc(117 * var(--u)); height: calc(128.2351 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_3_1" data-rot="20" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png'); background-size: calc(396.7152 * var(--u)) calc(396.7152 * var(--u)); background-position: calc(-49.7831 * var(--u)) calc(-226.2517 * var(--u)); --base-rot: 20deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(290 * var(--u)); top: calc(455 * var(--u)); width: calc(140 * var(--u)); height: calc(151.962 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_3_2" data-rot="-10" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png'); background-size: calc(453.6709 * var(--u)) calc(453.6709 * var(--u)); background-position: calc(-274.6835 * var(--u)) calc(-258.9557 * var(--u)); --base-rot: -10deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(1250 * var(--u)); top: calc(432 * var(--u)); width: calc(135 * var(--u)); height: calc(146.5348 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_3_3" data-rot="15" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png'); background-size: calc(437.4684 * var(--u)) calc(437.4684 * var(--u)); background-position: calc(-264.8734 * var(--u)) calc(-249.7073 * var(--u)); --base-rot: 15deg;"></div>
+        </div>
+        <div class="fruit-piece " style="left: calc(962 * var(--u)); top: calc(558 * var(--u)); width: calc(146 * var(--u)); height: calc(160.0199 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_3_4" data-rot="-15" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png'); background-size: calc(495.0464 * var(--u)) calc(495.0464 * var(--u)); background-position: calc(-62.1225 * var(--u)) calc(-282.3311 * var(--u)); --base-rot: -15deg;"></div>
+        </div>
+      </div>
+
+      <!-- 5. Corner layer -->
+      <div class="layer layer-corner" id="layer-corner-3">
+        
+        <div class="fruit-piece corner-piece " style="left: calc(-10 * var(--u)); top: calc(555 * var(--u)); width: calc(245 * var(--u)); height: calc(285.1783 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_3_5" data-rot="0" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png'); background-size: calc(894.4029 * var(--u)) calc(894.4029 * var(--u)); background-position: calc(-519.697 * var(--u)) calc(-94.3316 * var(--u)); --base-rot: 0deg;"></div>
+        </div>
+        <div class="fruit-piece corner-piece " style="left: calc(1285 * var(--u)); top: calc(35 * var(--u)); width: calc(200 * var(--u)); height: calc(232.7986 * var(--u));">
+          <div class="fruit-inner" data-kf="bob_3_6" data-rot="20" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&w=2048&q=85&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261117_055135_cbfb5a8d-c52b-4358-a6ee-d941c6c42285.png'); background-size: calc(730.1248 * var(--u)) calc(730.1248 * var(--u)); background-position: calc(-424.2424 * var(--u)) calc(-77.0053 * var(--u)); --base-rot: 20deg;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Fixed UI Layer -->
+  <div class="ui-layer" id="ui-layer">
+    <!-- Header row -->
+    <header class="header-row" id="header-row">
+      <a href="#" class="logo ui-reveal" id="logo" aria-label="Blendy home">Blendy</a>
+
+      <nav class="tabs-container ui-reveal" id="tabs-container" aria-label="Flavour selection">
+        <div class="tabs-wrapper" id="tabs-wrapper">
+          <button type="button" class="tab-btn" data-index="0" aria-current="true">Berry</button>
+          <button type="button" class="tab-btn" data-index="1">Kiwi</button>
+          <button type="button" class="tab-btn" data-index="2">Banana</button>
+          <button type="button" class="tab-btn" data-index="3">Strawberry</button>
+          <div class="tab-underline" id="tab-underline" aria-hidden="true"></div>
+        </div>
+      </nav>
+
+      <div class="account-links ui-reveal" id="account-links">
+        <a href="#cart" class="account-link">Cart</a>
+        <span class="account-separator" aria-hidden="true">|</span>
+        <a href="#register" class="account-link">Register</a>
+      </div>
+    </header>
+
+    <!-- Bottom controls -->
+    <a href="#shop" class="shop-now ui-reveal" id="shop-now">SHOP NOW</a>
+
+    <button type="button" class="arrow-btn prev-btn ui-reveal" id="prev-btn" aria-label="Previous flavour">
+      <svg viewBox="0 0 28 28" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 14H4 M12 6l-8 8 8 8" />
+      </svg>
+    </button>
+
+    <button type="button" class="arrow-btn next-btn ui-reveal" id="next-btn" aria-label="Next flavour">
+      <svg viewBox="0 0 28 28" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 14h20 M16 6l8 8-8 8" />
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    (function() {
+      // Configuration & Reference Data
+      const COVER_TABLE = [
+        { t: 0, c: 0 },
+        { t: 0.031, c: 0.006 },
+        { t: 0.134, c: 0.012 },
+        { t: 0.206, c: 0.023 },
+        { t: 0.278, c: 0.047 },
+        { t: 0.34,  c: 0.07 },
+        { t: 0.412, c: 0.105 },
+        { t: 0.485, c: 0.158 },
+        { t: 0.546, c: 0.246 },
+        { t: 0.583, c: 0.55 },
+        { t: 0.62,  c: 0.825 },
+        { t: 0.69,  c: 0.9 },
+        { t: 0.79,  c: 0.94 },
+        { t: 0.85,  c: 0.956 },
+        { t: 0.93,  c: 0.975 },
+        { t: 1,     c: 1 }
+      ];
+
+      const PARALLAX_FACTORS = {
+        word: 0.40,
+        shadow: 0.30,
+        bottle: 0.15,
+        fruit: 0.55,
+        corner: 0.75
+      };
+
+      const WORDS = ['Berry', 'Kiwi', 'Banana', 'Strawberry'];
+
+      // Elements
+      const stage = document.getElementById('stage');
+      const slides = [
+        document.getElementById('slide-0'),
+        document.getElementById('slide-1'),
+        document.getElementById('slide-2'),
+        document.getElementById('slide-3')
+      ];
+      const wordEls = [
+        document.getElementById('word-0'),
+        document.getElementById('word-1'),
+        document.getElementById('word-2'),
+        document.getElementById('word-3')
+      ];
+      const tabBtns = Array.from(document.querySelectorAll('.tab-btn'));
+      const underline = document.getElementById('tab-underline');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const logoEl = document.getElementById('logo');
+      const tabsContainerEl = document.getElementById('tabs-container');
+      const accountEl = document.getElementById('account-links');
+      const shopNowEl = document.getElementById('shop-now');
+
+      let currentIndex = 0;
+      let isTransitioning = false;
+      let currentU = 1;
+      let currentN = 1;
+      let currentFy = 0;
+      let isMobile = false;
+      let lastInteractionTime = 0;
+      let hasRevealed = false;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Canvas for text ink measurement
+      const measureCanvas = document.createElement('canvas');
+      const measureCtx = measureCanvas.getContext('2d');
+
+      // Setup Fruit Bob Animations with random duration & delay
+      if (!reducedMotion) {
+        document.querySelectorAll('.fruit-inner').forEach(inner => {
+          const kfName = inner.dataset.kf;
+          const dur = (3.2 + Math.random() * 1.8).toFixed(2);
+          const delay = (-Math.random() * 4.0).toFixed(2);
+          inner.style.animation = `${kfName} ${dur}s ease-in-out infinite alternate`;
+          inner.style.animationDelay = `${delay}s`;
+        });
+      }
+
+      // Check Layout Mode
+      function checkMobileLayout() {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        if (w > h) {
+          // Short landscape phones keep desktop layout
+          return false;
+        }
+        return w <= 820 || h > w;
+      }
+
+      // Compute Word Size & Layout
+      function layoutWord(index) {
+        const word = WORDS[index];
+        const el = wordEls[index];
+        const wrapper = el.parentElement;
+
+        let targetMax = 1400;
+        let threshold = 1330;
+        if (isMobile) {
+          const visibleWidth = Math.min(1440, window.innerWidth / currentU) * 0.92;
+          targetMax = visibleWidth;
+          threshold = visibleWidth;
+        }
+
+        // Measure ink width using 700-weight Poppins at 100px
+        measureCtx.font = '700 100px "Poppins", sans-serif';
+        if ('letterSpacing' in measureCtx) {
+          measureCtx.letterSpacing = '0.005em';
+        }
+        let m = measureCtx.measureText(word);
+        let ink100 = (m.actualBoundingBoxLeft !== undefined && m.actualBoundingBoxRight !== undefined && (m.actualBoundingBoxLeft + m.actualBoundingBoxRight) > 0)
+          ? (m.actualBoundingBoxLeft + m.actualBoundingBoxRight)
+          : m.width;
+
+        let inkAt445 = ink100 * 4.45;
+        let ls = 0.005;
+        let F = 445;
+
+        if (inkAt445 > threshold) {
+          ls = -0.035;
+          if ('letterSpacing' in measureCtx) {
+            measureCtx.letterSpacing = '-0.035em';
+          }
+          let mTight = measureCtx.measureText(word);
+          let ink100Tight = (mTight.actualBoundingBoxLeft !== undefined && mTight.actualBoundingBoxRight !== undefined && (mTight.actualBoundingBoxLeft + mTight.actualBoundingBoxRight) > 0)
+            ? (mTight.actualBoundingBoxLeft + mTight.actualBoundingBoxRight)
+            : (ink100 * 0.96); // tight tracking fallback
+          F = Math.min(445, (targetMax / ink100Tight) * 100);
+        }
+
+        // If on desktop 1440x900 and canvas fallback, ensure exact calibrated values from spec:
+        // Berry & Kiwi at 445, Banana at ~372, Strawberry at ~257
+        if (!isMobile) {
+          if (word === 'Banana' && Math.abs(F - 372) > 15) F = 372;
+          if (word === 'Strawberry' && Math.abs(F - 257) > 15) F = 257;
+          if ((word === 'Berry' || word === 'Kiwi') && Math.abs(F - 445) > 10) F = 445;
+        }
+
+        const baseline = 403.5 + 0.698 * F / 2;
+        const boxTop = baseline - 0.85 * F;
+
+        wrapper.style.top = `calc(${boxTop} * var(--u))`;
+        el.style.fontSize = `calc(${F} * var(--u))`;
+        el.style.letterSpacing = `${ls}em`;
+      }
+
+      // Update Scaling System & Units
+      function updateScaling() {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        isMobile = checkMobileLayout();
+        document.body.classList.toggle('is-mobile', isMobile);
+
+        if (isMobile) {
+          currentU = Math.min(w / 640, (h - 200) / 620);
+          currentFy = 8;
+          currentN = 1;
+        } else {
+          currentU = Math.min(w / 1440, h / 900);
+          currentFy = 0;
+          const minRatio = Math.min(w / 1440, h / 900);
+          currentN = Math.max(0.5, Math.min(1.3, minRatio));
+        }
+
+        document.documentElement.style.setProperty('--u', `${currentU}px`);
+        document.documentElement.style.setProperty('--n', `${currentN}px`);
+        document.documentElement.style.setProperty('--fy', `${currentFy}px`);
+
+        // Recompute all words
+        for (let i = 0; i < 4; i++) {
+          layoutWord(i);
+        }
+
+        // Update active tab underline
+        updateUnderline(currentIndex, false);
+      }
+
+      // Update Nav Underline
+      function updateUnderline(index, animate = true) {
+        const activeTab = tabBtns[index];
+        if (!activeTab) return;
+
+        if (!animate || reducedMotion) {
+          underline.style.transition = 'none';
+        } else {
+          underline.style.transition = 'transform 0.6s cubic-bezier(0.65, 0, 0.35, 1), width 0.6s cubic-bezier(0.65, 0, 0.35, 1)';
+        }
+
+        underline.style.width = `${activeTab.offsetWidth}px`;
+        underline.style.transform = `translateX(${activeTab.offsetLeft}px)`;
+
+        if (!animate && !reducedMotion) {
+          void underline.offsetWidth; // flush layout
+          underline.style.transition = 'transform 0.6s cubic-bezier(0.65, 0, 0.35, 1), width 0.6s cubic-bezier(0.65, 0, 0.35, 1)';
+        }
+
+        tabBtns.forEach((t, i) => {
+          if (i === index) {
+            t.setAttribute('aria-current', 'true');
+          } else {
+            t.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      // Coverage Curve Interpolation
+      function getCoverage(t) {
+        if (t <= 0) return 0;
+        if (t >= 1) return 1;
+        let i = 0;
+        while (i < COVER_TABLE.length - 1 && COVER_TABLE[i + 1].t < t) {
+          i++;
+        }
+        const p0 = COVER_TABLE[i];
+        const p1 = COVER_TABLE[i + 1];
+        const u = (t - p0.t) / (p1.t - p0.t);
+        const smooth = u * u * (3 - 2 * u);
+        return p0.c + smooth * (p1.c - p0.c);
+      }
+
+      // Parallax EaseOutQuad
+      function getK(t) {
+        const x = Math.max(0, Math.min(1, (t - 0.5) / 0.42));
+        return 1 - (1 - x) * (1 - x);
+      }
+
+      // Flavour Change Transition
+      function goTo(targetIndex, dir) {
+        if (isTransitioning || targetIndex === currentIndex) return;
+
+        if (reducedMotion) {
+          slides[currentIndex].style.display = 'none';
+          slides[currentIndex].setAttribute('aria-hidden', 'true');
+          slides[targetIndex].style.display = 'block';
+          slides[targetIndex].style.zIndex = '2';
+          slides[targetIndex].setAttribute('aria-hidden', 'false');
+          document.body.style.backgroundColor = slides[targetIndex].style.backgroundColor;
+          currentIndex = targetIndex;
+          updateUnderline(currentIndex, false);
+          return;
+        }
+
+        isTransitioning = true;
+        const slideA = slides[currentIndex];
+        const slideB = slides[targetIndex];
+        const frameWidth = 1440 * currentU;
+
+        // Underline moves immediately
+        updateUnderline(targetIndex, true);
+
+        // Slide B under A
+        slideB.style.display = 'block';
+        slideB.style.zIndex = '1';
+        slideB.setAttribute('aria-hidden', 'false');
+        slideA.style.zIndex = '2';
+
+        const layersA = {
+          word: document.getElementById(`layer-word-${currentIndex}`),
+          shadow: document.getElementById(`layer-shadow-${currentIndex}`),
+          bottle: document.getElementById(`layer-bottle-${currentIndex}`),
+          fruit: document.getElementById(`layer-fruit-${currentIndex}`),
+          corner: document.getElementById(`layer-corner-${currentIndex}`)
+        };
+
+        const layersB = {
+          word: document.getElementById(`layer-word-${targetIndex}`),
+          shadow: document.getElementById(`layer-shadow-${targetIndex}`),
+          bottle: document.getElementById(`layer-bottle-${targetIndex}`),
+          fruit: document.getElementById(`layer-fruit-${targetIndex}`),
+          corner: document.getElementById(`layer-corner-${targetIndex}`)
+        };
+
+        const startTime = performance.now();
+        const duration = 970;
+
+        function animateFrame(now) {
+          const elapsed = now - startTime;
+          const t = elapsed / duration;
+
+          const c = getCoverage(Math.min(1, t));
+          const k = getK(t);
+
+          // 3. Covering A
+          if (dir === 1) {
+            slideA.style.clipPath = `inset(0 ${(c * 100).toFixed(4)}% 0 0)`;
+          } else {
+            slideA.style.clipPath = `inset(0 0 0 ${(c * 100).toFixed(4)}%)`;
+          }
+
+          // 4. A drifts away
+          const driftA = -dir * c * 0.14 * frameWidth;
+          for (const key in layersA) {
+            if (layersA[key]) layersA[key].style.transform = `translateX(${driftA}px)`;
+          }
+
+          // 5. B arrives with parallax
+          const remainB = 1 - k;
+          for (const key in layersB) {
+            if (layersB[key]) {
+              const offsetB = dir * remainB * PARALLAX_FACTORS[key] * frameWidth;
+              layersB[key].style.transform = `translateX(${offsetB}px)`;
+            }
+          }
+
+          if (t < 1 || k < 1) {
+            requestAnimationFrame(animateFrame);
+          } else {
+            // 6. Finish
+            slideA.style.clipPath = '';
+            for (const key in layersA) {
+              if (layersA[key]) layersA[key].style.transform = '';
+            }
+            for (const key in layersB) {
+              if (layersB[key]) layersB[key].style.transform = '';
+            }
+            slideA.style.display = 'none';
+            slideA.setAttribute('aria-hidden', 'true');
+            slideB.style.zIndex = '2';
+            document.body.style.backgroundColor = slideB.style.backgroundColor;
+            currentIndex = targetIndex;
+            isTransitioning = false;
+          }
+        }
+
+        requestAnimationFrame(animateFrame);
+      }
+
+      // Interaction tracking
+      function registerInteraction() {
+        lastInteractionTime = Date.now();
+        lastAdvanceTime = Date.now();
+      }
+
+      // Autoplay: every 2600 ms, if page visible and no interaction in last 6s, go to next flavour
+      let lastAdvanceTime = Date.now();
+      setInterval(() => {
+        const now = Date.now();
+        if (document.hidden || isTransitioning) return;
+        if (now - lastInteractionTime < 6000) return;
+        if (now - lastAdvanceTime < 2600) return;
+        lastAdvanceTime = now;
+        goTo((currentIndex + 1) % 4, 1);
+      }, 100);
+
+      // Event Listeners
+      window.addEventListener('resize', () => {
+        updateScaling();
+      });
+
+      // User actions pause autoplay for 6s
+      window.addEventListener('pointerdown', registerInteraction, { passive: true });
+      window.addEventListener('keydown', registerInteraction, { passive: true });
+
+      // Tab clicks
+      tabBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          registerInteraction();
+          if (idx === currentIndex || isTransitioning) return;
+          const dir = idx > currentIndex ? 1 : -1;
+          goTo(idx, dir);
+        });
+      });
+
+      // Arrow buttons
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerInteraction();
+        goTo((currentIndex - 1 + 4) % 4, -1);
+      });
+
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerInteraction();
+        goTo((currentIndex + 1) % 4, 1);
+      });
+
+      // Keyboard navigation
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          registerInteraction();
+          goTo((currentIndex + 1) % 4, 1);
+        } else if (e.key === 'ArrowLeft') {
+          registerInteraction();
+          goTo((currentIndex - 1 + 4) % 4, -1);
+        }
+      });
+
+      // Swipe & Drag
+      let pointerStartX = 0;
+      let pointerStartY = 0;
+      let isPointerDown = false;
+
+      stage.addEventListener('pointerdown', (e) => {
+        pointerStartX = e.clientX;
+        pointerStartY = e.clientY;
+        isPointerDown = true;
+      });
+
+      window.addEventListener('pointerup', (e) => {
+        if (!isPointerDown) return;
+        isPointerDown = false;
+        const dx = e.clientX - pointerStartX;
+        const dy = e.clientY - pointerStartY;
+
+        if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+          registerInteraction();
+          if (dx < 0) {
+            goTo((currentIndex + 1) % 4, 1);
+          } else {
+            goTo((currentIndex - 1 + 4) % 4, -1);
+          }
+        }
+      });
+
+      // Opening Sequence
+      function runOpeningSequence() {
+        if (hasRevealed) return;
+        hasRevealed = true;
+
+        updateScaling();
+
+        if (reducedMotion) {
+          // Immediately reveal everything
+          document.querySelectorAll('.ui-reveal').forEach(el => el.classList.add('revealed'));
+          return;
+        }
+
+        const frameWidth = 1440 * currentU;
+        const berryLayers = [
+          { el: document.getElementById('layer-word-0'), factor: 0.40 },
+          { el: document.getElementById('layer-shadow-0'), factor: 0.30 },
+          { el: document.getElementById('layer-bottle-0'), factor: 0.15 },
+          { el: document.getElementById('layer-fruit-0'), factor: 0.55 },
+          { el: document.getElementById('layer-corner-0'), factor: 0.75 }
+        ];
+
+        // Animate Berry layers translateX from +factor * frameWidth to 0
+        berryLayers.forEach(item => {
+          if (!item.el) return;
+          item.el.style.transform = `translateX(${item.factor * frameWidth}px)`;
+          void item.el.offsetWidth; // flush
+          item.el.style.transition = 'transform 900ms cubic-bezier(0.22, 0.8, 0.3, 1)';
+          item.el.style.transform = 'translateX(0px)';
+          setTimeout(() => {
+            item.el.style.transition = '';
+            item.el.style.transform = '';
+          }, 950);
+        });
+
+        // UI elements rise
+        const uiSchedule = [
+          { el: logoEl, delay: 250 },
+          { el: tabsContainerEl, delay: 330 },
+          { el: accountEl, delay: 410 },
+          { el: prevBtn, delay: 490 },
+          { el: shopNowEl, delay: 570 },
+          { el: nextBtn, delay: 650 }
+        ];
+
+        uiSchedule.forEach(item => {
+          if (!item.el) return;
+          setTimeout(() => {
+            item.el.classList.add('revealed');
+          }, item.delay);
+        });
+      }
+
+      // Initial scaling & setup
+      updateScaling();
+
+      // Wait for fonts, then start opening sequence
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+          runOpeningSequence();
+        });
+      } else {
+        window.addEventListener('load', () => {
+          runOpeningSequence();
+        });
+      }
+
+      // 3-second failsafe to ensure everything reveals
+      setTimeout(() => {
+        if (!hasRevealed) {
+          runOpeningSequence();
+        }
+        document.querySelectorAll('.ui-reveal').forEach(el => el.classList.add('revealed'));
+      }, 3000);
+
+    })();
+  </script>
+</body>
+</html>
